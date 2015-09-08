@@ -1,2 +1,3 @@
-# mephi15-2
-MEPhI functional programming
+# Лабораторные работы
+
+## по курсу ФП, осень 2015, МИФИ:
