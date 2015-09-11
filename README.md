@@ -7,7 +7,7 @@
 ## Установка
 * `sudo apt-get install haskell-platform`
 * `yum install haskell-platform`
-* или просто `haskell.org/platform`
+* или просто http://haskell.org/platform
 
 Нам нужна хаскель-платформа, потому что туда помимо самого хаскеля входят cabal и нужные библиотеки.
 
