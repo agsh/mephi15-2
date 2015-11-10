@@ -1,12 +1,20 @@
 {-# LANGUAGE OverloadedStrings #-}
 
-import Network.HTTP.Conduit (simpleHttp) -- из пакета http-conduit
+import System.IO
+import System.Environment
+import System.Directory
+import Control.Monad
 import qualified Data.ByteString.Lazy.Char8 as L -- если захотим работать с данными, полученными из simpleHttp
-import qualified Data.Text as T -- представление юникодной строки в хаскелле
+import Data.Text.Encoding
 import Data.Text (replace) -- берём из модуля Data.Text только функцию replace (многие ф-ии из него перекрывают станартные из Prelude)
+import Network.HTTP.Conduit -- из пакета http-conduit
+import qualified Data.Text as T -- представление юникодной строки в хаскелле
 import Text.HTML.DOM (parseLBS) -- из пакета html-conduit
 import Text.XML.Cursor (Cursor, attributeIs, content, element, fromDocument, child, ($//), (&|), (&//), (&/), (>=>)) -- из пакета xml-conduit, для работы с DOM-деревом документа
 import Network (withSocketsDo) -- workaround для windows
+
+-- почтовый адрес
+email = "vasiliy.kvm@gmail.com"
 
 n = T.pack "\r\n" -- перевод строки в плохой вёрстке сайта cyber.mephi.ru
 
@@ -38,7 +46,7 @@ lab2 = do
   cursor <- cursorFor url
   let infoNodes = cursor $// findNodes &| extractData
       replaceBr = replace n T.empty
-      filterNodes = map (T.unpack . replaceBr) . take 45
+      filterNodes = map replaceBr . take 45
   return $ filterNodes infoNodes
   
 main :: IO()
