@@ -53,7 +53,7 @@ main :: IO()
 main = withSocketsDo $ do
   nodes <- lab2
   dir <- getCurrentDirectory
-  initReq <- parseUrl "nowhere/lab3"
+  initReq <- parseUrl "http://91.239.143.158:13666/lab3"
   handle <- openFile (dir ++ "/Lab3.hs") ReadMode
   hSetEncoding handle utf8_bom
   content <- hGetContents handle
