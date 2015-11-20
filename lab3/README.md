@@ -33,7 +33,7 @@
 |17|Какое количество разработчиков NuGet уже перебазировались на github, если судить по их никам? (https://nuget.codeplex.com/team/view)
 |18|Кто из разработчиков Microsoft на github ведёт блог на blogs.msdn.com и указал его в профиле? (https://github.com/Microsoft)
 |19|Попытаться найти по списку языков программирования википедии человека, который разработал больше всего ЯП (http://en.wikipedia.org/wiki/List_of_programming_languages)
-|20|Какое количество ссылок на странице о LISP ведут на англоязычные ресурсы, а какие - на русскоязычные? (https://www.linux.org.ru/wiki/en/%D0%A7%D0%B0%D1%81%D1%82%D1%8C_1._%D0%9E%D0%B1%D1%89%D0%B8%D0%B5_%D0%B2%D0%BE%D0%BF%D1%80%D0%BE%D1%81%D1%8B_%D0%BE_Lisp)
+|20|Какое количество ссылок на странице о LISP ведут на англоязычные ресурсы, а какие - на русскоязычные? (https://lorwiki.ru/wiki/Часть_1._Общие_вопросы_о_Lisp)
 |21|Под какой лицензией выпущено большинство проектов на F# на github, если судить по файлу LICENSE? (https://github.com/search?utf8=%E2%9C%93&q=language%3AF%23&type=Repositories&ref=advsearch&l=F%23)
 |22|Сколько пакетов в Hackage (http://hackage.haskell.org/packages/) относятся к нескольким категориям?
 |23|У какого факультета МИФИ (http://mephi.ru/about/faculty/) больше всего кафедр?
