@@ -10,3 +10,12 @@ data Token = TOpenBrace
   | TNumber Integer
   | TBoolean Bool
   | TNull deriving (Show)
+
+tokenize :: String -> [Token]
+tokenize string = 
+  let
+    tokenize' [] tokens = tokens
+    tokenize' ('n':'u':'l':'l':xs) tokens = tokenize' xs (TNull:tokens)
+  in tokenize' string []
+
+tokenize "null"
