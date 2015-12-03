@@ -52,3 +52,13 @@ instance Read JSON where
 
 parse :: ReadS (JSON)
 parse json = [(fst $ parse' $ tokenize json, "")]
+
+...
+
+parse' :: [Token] -> (JSON, [Token])
+parse' (TOpenBrace:xs) = parseObject M.empty xs 
+parse' (TOpenBracket:xs) = parseArray [] xs
+parse' (TNull:xs) = (Null, xs)
+parse' (TBoolean b:xs) = (Boolean b, xs)
+parse' (TString st:xs) = (String st, xs)
+parse' (TNumber num:xs) = (Number num, xs)
