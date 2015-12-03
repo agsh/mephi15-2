@@ -30,3 +30,25 @@ tokenize string =
       let (s, xss) = parseNumber "" xs
       in tokenize' xss ((TNumber (read s :: Integer)):tokens)
   in reverse $ tokenize' string []
+  
+  data JSON = Null
+            | Boolean Bool
+            | String String
+            | Number Integer
+            | Array [JSON]
+            | Object (M.Map String JSON) deriving (Eq, Ord)
+
+instance Show JSON where
+    show Null = "null"
+    show (Object m) = "{" ++ L.intercalate "," (map (\ (x,y) -> show x ++ ":" ++ show y) $ M.toList m) ++ "}"
+    show (Boolean True) = "true"
+    show (Boolean False) = "false"
+    show (String s) = show s
+    show (Number n) = show n
+    show (Array l) = show l
+
+instance Read JSON where
+  readsPrec _ x = parse x
+
+parse :: ReadS (JSON)
+parse json = [(fst $ parse' $ tokenize json, "")]
