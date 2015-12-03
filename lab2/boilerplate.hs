@@ -77,3 +77,72 @@ parse' (TNull:xs) = (Null, xs)
 parse' (TBoolean b:xs) = (Boolean b, xs)
 parse' (TString st:xs) = (String st, xs)
 parse' (TNumber num:xs) = (Number num, xs)
+
+{----------------------------------------}
+{-# LANGUAGE OverloadedStrings #-}
+
+-- https://github.com/JakeWheat/intro_to_parsing
+
+import Control.Applicative ((<$>), (<*>), (*>), (<*), (<$))
+import qualified Data.Map as M
+import qualified Data.List as L
+import Text.ParserCombinators.Parsec
+import Text.Parsec.Token
+
+data JSON = Null
+            | Boolean Bool
+            | String String
+            | Number Integer
+            | Array [JSON]
+            | Object (M.Map String JSON) deriving (Eq, Ord)
+
+instance Show JSON where
+    show Null = "null"
+    show (Object m) = "{" ++ L.intercalate "," (map (\ (x,y) -> show x ++ ":" ++ show y) $ M.toList m) ++ "}"
+    show (Boolean b) = show b
+    show (String s) = show s
+    show (Number n) = show n
+    show (Array l) = show l
+
+readExpr :: String -> JSON
+readExpr input = case parse parseExpr "JSON" input of
+    Right val -> val
+{-
+parse
+  :: Text.Parsec.Prim.Stream s Data.Functor.Identity.Identity t =>
+     Text.Parsec.Prim.Parsec s () a
+     -> SourceName -> s -> Either ParseError a
+-}
+
+parseString :: Parser JSON
+parseString = char '\"' *> (String <$> many (noneOf "\"")) <* char '\"'
+
+parseNumber :: Parser JSON
+parseNumber = Number . read <$> many1 digit
+
+parseList :: Parser JSON
+parseList = char '[' *> spaces *> (Array <$> sepBy parseExpr (char ',' <* spaces)) <* spaces <* char ']'
+
+parseBool :: Parser JSON
+parseBool = Boolean True <$ string "true" <|> 
+            Boolean False <$ string "false"
+
+parseNull :: Parser JSON
+parseNull = Null <$ string "null"
+
+parseObject :: Parser (M.Map String JSON)
+parseObject = char '{' *> (M.fromList <$> sepBy (parseContent <* spaces) (char ',' <* spaces)) <* char '}'
+                where 
+                    parseStr :: Parser String
+                    parseStr = char '\"' *> (many (noneOf "\"")) <* char '\"'
+                    parseContent = (,) <$> (parseStr <* char ':' <* spaces) <*> parseExpr
+
+parseExpr = parseString
+         <|> parseNumber
+         <|> parseList
+         <|> parseBool
+         <|> parseNull
+         <|> (Object <$> parseObject)
+         <?> "Wrong JSON format"
+
+a = "{\"123\":true,\"2394\":123,\"918\":61,\"81130\":[1,2,3, \"123\"]}"
