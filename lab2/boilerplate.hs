@@ -30,6 +30,9 @@ tokenize string =
       let (s, xss) = parseNumber "" xs
       in tokenize' xss ((TNumber (read s :: Integer)):tokens)
   in reverse $ tokenize' string []
+ 
+ -- работа с Data.Map: http://learnyouahaskell.com/modules#data-map
+ 
   
   data JSON = Null
             | Boolean Bool
