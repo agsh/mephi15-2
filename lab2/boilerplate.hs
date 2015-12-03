@@ -56,7 +56,19 @@ instance Read JSON where
 parse :: ReadS (JSON)
 parse json = [(fst $ parse' $ tokenize json, "")]
 
-...
+parseObject :: M.Map String JSON -> [Token] -> (JSON, [Token])
+parseObject acc (TCloseBrace : xs) = (Object acc, xs)
+parseObject acc (TComma : xs) = parseObject acc xs
+parseObject acc (TString s : TColon : xs) =
+  let (json, xss) = parse' xs
+  in parseObject (M.insert s json acc) xss
+
+parseArray :: [JSON] -> [Token] -> (JSON, [Token])
+parseArray acc (TCloseBracket:xs) = (Array (reverse acc), xs)
+parseArray acc (TComma:xs) = parseArray acc xs
+parseArray acc object = 
+  let (json, xs) = parse' object 
+  in parseArray (json:acc) xs
 
 parse' :: [Token] -> (JSON, [Token])
 parse' (TOpenBrace:xs) = parseObject M.empty xs 
