@@ -37,7 +37,7 @@
 |21|Под какой лицензией выпущено большинство проектов на F# на github, если судить по файлу LICENSE? (https://github.com/search?utf8=%E2%9C%93&q=language%3AF%23&type=Repositories&ref=advsearch&l=F%23)
 |22|Сколько пакетов в Hackage (http://hackage.haskell.org/packages/) относятся к нескольким категориям?
 |23|У какого факультета МИФИ (http://mephi.ru/about/faculty/) больше всего кафедр?
-|24|Сколько музыкальных групп всего с одним треком находится в чарте last.fm top100 композиций по РФ? (http://www.last.fm/charts/tracks/top/place/Russian+Federation?limit=100)
+|24|Узнать, в каких группах больше всего тем с пометкой "Важно:" на форуме (http://www.sql.ru/forum)
 |25|Какие группы появлялись в чартах last.fm с 2008 по 2013 года (исключая 2012) больше всего раз? (http://www.last.fm/bestof/2008 - http://www.last.fm/bestof/2013)
 |26|Кто, кроме anonymous'а оставил больше всего комментариев в теме https://www.linux.org.ru/news/google/11404954?
 |27|Какой тэг самый популярный среди ста самых популярных пакетов на NuGet? (https://www.nuget.org/stats/packages)
