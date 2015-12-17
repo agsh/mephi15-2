@@ -38,7 +38,7 @@
 |22|Сколько пакетов в Hackage (http://hackage.haskell.org/packages/) относятся к нескольким категориям?
 |23|У какого факультета МИФИ (http://mephi.ru/about/faculty/) больше всего кафедр?
 |24|Узнать, в каких группах больше всего тем с пометкой "Важно:" на форуме (http://www.sql.ru/forum)
-|25|Какие группы появлялись в чартах last.fm с 2008 по 2013 года (исключая 2012) больше всего раз? (http://www.last.fm/bestof/2008 - http://www.last.fm/bestof/2013)
+|25|В какой теме из раздела "обсуждение провайдеров" больше всего ответов? (http://rutracker.org/forum/viewforum.php?f=326)
 |26|Кто, кроме anonymous'а оставил больше всего комментариев в теме https://www.linux.org.ru/news/google/11404954?
 |27|Какой тэг самый популярный среди ста самых популярных пакетов на NuGet? (https://www.nuget.org/stats/packages)
 |28|В каком месяце какого года было больше всего вопросов в рассылке эрланга? (http://erlang.org/pipermail/erlang-questions/)
