@@ -14,7 +14,7 @@ import Text.XML.Cursor (Cursor, attributeIs, content, element, fromDocument, chi
 import Network (withSocketsDo) -- workaround для windows
 
 -- почтовый адрес
-email = "vasiliy.kvm@gmail.com"
+email = ""
 
 n = T.pack "\r\n" -- перевод строки в плохой вёрстке сайта cyber.mephi.ru
 
