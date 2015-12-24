@@ -23,7 +23,7 @@
 |7|Составить список выпускников МИФИ, которые любят КВН (https://vk.com/vmephi)
 |8|Составить список 50 самых комментируемых (по количеству отзывов) преподавателей (http://www.mephist.ru/mephist/prepods.nsf/teachers)
 |9|Составить список 50 лучших отзывов для преподавателей с самой высокой оценкой (http://www.mephist.ru/mephist/prepods.nsf/teachers)
-|10|Найти средний возраст участников студсовета МИФИ (https://vk.com/vmephi)
+|10|Узнать, за какие 5 дней поступило наибольшее количество новостей в ленту (https://mephi.ru/content/news/)
 |11|Отсортировать список git-проектов Haskell, которые проходят тесты на Travis CI по количеству веток (https://github.com/haskell)
 |12|Выяснить, какой процент из топ-500 проектов на языках Haskell и F# на github с наибольшим количеством звёзд составляют проекты на F# (https://github.com/search?utf8=%E2%9C%93&q=language%3AF%23&type=Repositories&ref=advsearch&l=F%23)
 |13|Составить частоту обновлений проектов на F# на github (в течении последнего месяца, двух, и т. д.) (https://github.com/search?utf8=%E2%9C%93&q=language%3AF%23&type=Repositories&ref=advsearch&l=F%23)
